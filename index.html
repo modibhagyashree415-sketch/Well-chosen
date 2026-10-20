@@ -52,125 +52,6 @@
     </div>
   </header>
 
-  <!-- Quick Occasion Chips -->
-  <section class="occasions" aria-label="Occasions filter chips">
-    <a href="shop.html?occasion=diwali" class="chip">🪔 Diwali & Festive</a>
-    <a href="shop.html?occasion=birthday" class="chip">🎂 Birthday</a>
-    <a href="shop.html?occasion=anniversary" class="chip">🥂 Anniversary</a>
-    <a href="shop.html?occasion=wedding" class="chip">💍 Wedding</a>
-    <a href="shop.html?occasion=housewarming" class="chip">🏡 Housewarming</a>
-    <a href="shop.html?occasion=valentine" class="chip">💖 Valentine's Day</a>
-    <a href="shop.html?occasion=corporate" class="chip">💼 Corporate & Thanks</a>
-  </section>
-
-  <!-- Trending Products Section -->
-  <section class="products" aria-label="Trending gifts">
-    <div class="trending-section">
-      <div class="section-title-wrap">
-        <h2>Trending Gifts</h2>
-        <a href="shop.html" class="view-all-link">View All Gifts →</a>
-      </div>
-      
-      <div class="product-grid">
-        <!-- Card 1: Candles -->
-        <div class="product-card">
-          <div class="card-img-wrap" onclick="openProductQuickView(1)">
-            <img src="images/aesthetic-scented-candles.jpg" alt="Aesthetic Scented Candle Set">
-            <span class="product-badge-corner">Bestseller</span>
-          </div>
-          <div class="card-details">
-            <h3>Aesthetic Scented Candle Set</h3>
-            <p class="category">Home Decor • Soy Wax</p>
-            <div class="price-rating-row">
-              <span class="price">₹599</span>
-              <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
-            </div>
-            <div class="card-action-btns">
-              <button class="buy-btn" onclick="addToCart(1)">
-                <i class="fa-solid fa-cart-plus"></i> Add to Cart
-              </button>
-              <button class="quick-view-btn" onclick="openProductQuickView(1)" title="Quick View">
-                <i class="fa-solid fa-eye"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Royal Shubh Labh Dry Fruits Wooden Box -->
-        <div class="product-card">
-          <div class="card-img-wrap" onclick="openProductQuickView(7)">
-            <img src="images/diwali-dry-fruits-wooden-box.jpg" alt="Royal Shubh Labh Dry Fruits Wooden Box">
-            <span class="product-badge-corner">Diwali Special</span>
-          </div>
-          <div class="card-details">
-            <h3>Royal Shubh Labh Dry Fruits Wooden Box</h3>
-            <p class="category">Diwali Special • Dry Fruits</p>
-            <div class="price-rating-row">
-              <span class="price">₹1299</span>
-              <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
-            </div>
-            <div class="card-action-btns">
-              <button class="buy-btn" onclick="addToCart(7)">
-                <i class="fa-solid fa-cart-plus"></i> Add to Cart
-              </button>
-              <button class="quick-view-btn" onclick="openProductQuickView(7)" title="Quick View">
-                <i class="fa-solid fa-eye"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Brass Urli Floating Candles Centerpiece -->
-        <div class="product-card">
-          <div class="card-img-wrap" onclick="openProductQuickView(16)">
-            <img src="images/diwali-floating-candles-urli.jpg" alt="Brass Urli Floating Candles Centerpiece">
-            <span class="product-badge-corner">Festive Favorite</span>
-          </div>
-          <div class="card-details">
-            <h3>Brass Urli Floating Candles Centerpiece</h3>
-            <p class="category">Festive Home Decor</p>
-            <div class="price-rating-row">
-              <span class="price">₹999</span>
-              <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
-            </div>
-            <div class="card-action-btns">
-              <button class="buy-btn" onclick="addToCart(16)">
-                <i class="fa-solid fa-cart-plus"></i> Add to Cart
-              </button>
-              <button class="quick-view-btn" onclick="openProductQuickView(16)" title="Quick View">
-                <i class="fa-solid fa-eye"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Diwali Grand Pooja & Sweets Deluxe Hamper -->
-        <div class="product-card">
-          <div class="card-img-wrap" onclick="openProductQuickView(18)">
-            <img src="images/diwali-brass-diya-pooja-box.jpg" alt="Diwali Grand Pooja & Sweets Deluxe Hamper">
-            <span class="product-badge-corner">Grand Festive</span>
-          </div>
-          <div class="card-details">
-            <h3>Diwali Grand Pooja & Sweets Deluxe Hamper</h3>
-            <p class="category">Luxury Gift Hamper</p>
-            <div class="price-rating-row">
-              <span class="price">₹1799</span>
-              <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
-            </div>
-            <div class="card-action-btns">
-              <button class="buy-btn" onclick="addToCart(18)">
-                <i class="fa-solid fa-cart-plus"></i> Add to Cart
-              </button>
-              <button class="quick-view-btn" onclick="openProductQuickView(18)" title="Quick View">
-                <i class="fa-solid fa-eye"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Diwali Festive Sale & Exclusive Offers Image Slider -->
   <section class="diwali-slider-section" aria-label="Diwali Festive Sale and Special Offers">
     <div class="diwali-slider-header">
@@ -325,6 +206,125 @@
         <div class="slider-counter" id="slideCounter">1 / 5</div>
         <div class="slider-dots" id="sliderDots" aria-label="Slide navigation dots"></div>
         <div class="slider-progress-bar"><div class="slider-progress-fill" id="sliderProgress"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Occasion Chips -->
+  <section class="occasions" aria-label="Occasions filter chips">
+    <a href="shop.html?occasion=diwali" class="chip">🪔 Diwali & Festive</a>
+    <a href="shop.html?occasion=birthday" class="chip">🎂 Birthday</a>
+    <a href="shop.html?occasion=anniversary" class="chip">🥂 Anniversary</a>
+    <a href="shop.html?occasion=wedding" class="chip">💍 Wedding</a>
+    <a href="shop.html?occasion=housewarming" class="chip">🏡 Housewarming</a>
+    <a href="shop.html?occasion=valentine" class="chip">💖 Valentine's Day</a>
+    <a href="shop.html?occasion=corporate" class="chip">💼 Corporate & Thanks</a>
+  </section>
+
+  <!-- Trending Products Section -->
+  <section class="products" aria-label="Trending gifts">
+    <div class="trending-section">
+      <div class="section-title-wrap">
+        <h2>Trending Gifts</h2>
+        <a href="shop.html" class="view-all-link">View All Gifts →</a>
+      </div>
+      
+      <div class="product-grid">
+        <!-- Card 1: Candles -->
+        <div class="product-card">
+          <div class="card-img-wrap" onclick="openProductQuickView(1)">
+            <img src="images/aesthetic-scented-candles.jpg" alt="Aesthetic Scented Candle Set">
+            <span class="product-badge-corner">Bestseller</span>
+          </div>
+          <div class="card-details">
+            <h3>Aesthetic Scented Candle Set</h3>
+            <p class="category">Home Decor • Soy Wax</p>
+            <div class="price-rating-row">
+              <span class="price">₹599</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <div class="card-action-btns">
+              <button class="buy-btn" onclick="addToCart(1)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+              <button class="quick-view-btn" onclick="openProductQuickView(1)" title="Quick View">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Royal Shubh Labh Dry Fruits Wooden Box -->
+        <div class="product-card">
+          <div class="card-img-wrap" onclick="openProductQuickView(7)">
+            <img src="images/diwali-dry-fruits-wooden-box.jpg" alt="Royal Shubh Labh Dry Fruits Wooden Box">
+            <span class="product-badge-corner">Diwali Special</span>
+          </div>
+          <div class="card-details">
+            <h3>Royal Shubh Labh Dry Fruits Wooden Box</h3>
+            <p class="category">Diwali Special • Dry Fruits</p>
+            <div class="price-rating-row">
+              <span class="price">₹1299</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <div class="card-action-btns">
+              <button class="buy-btn" onclick="addToCart(7)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+              <button class="quick-view-btn" onclick="openProductQuickView(7)" title="Quick View">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Brass Urli Floating Candles Centerpiece -->
+        <div class="product-card">
+          <div class="card-img-wrap" onclick="openProductQuickView(16)">
+            <img src="images/diwali-floating-candles-urli.jpg" alt="Brass Urli Floating Candles Centerpiece">
+            <span class="product-badge-corner">Festive Favorite</span>
+          </div>
+          <div class="card-details">
+            <h3>Brass Urli Floating Candles Centerpiece</h3>
+            <p class="category">Festive Home Decor</p>
+            <div class="price-rating-row">
+              <span class="price">₹999</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
+            </div>
+            <div class="card-action-btns">
+              <button class="buy-btn" onclick="addToCart(16)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+              <button class="quick-view-btn" onclick="openProductQuickView(16)" title="Quick View">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Diwali Grand Pooja & Sweets Deluxe Hamper -->
+        <div class="product-card">
+          <div class="card-img-wrap" onclick="openProductQuickView(18)">
+            <img src="images/diwali-brass-diya-pooja-box.jpg" alt="Diwali Grand Pooja & Sweets Deluxe Hamper">
+            <span class="product-badge-corner">Grand Festive</span>
+          </div>
+          <div class="card-details">
+            <h3>Diwali Grand Pooja & Sweets Deluxe Hamper</h3>
+            <p class="category">Luxury Gift Hamper</p>
+            <div class="price-rating-row">
+              <span class="price">₹1799</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
+            </div>
+            <div class="card-action-btns">
+              <button class="buy-btn" onclick="addToCart(18)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+              <button class="quick-view-btn" onclick="openProductQuickView(18)" title="Quick View">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
