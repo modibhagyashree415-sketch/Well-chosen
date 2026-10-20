@@ -1,93 +1,282 @@
-let currentSlide = 0;
-let slides = document.querySelectorAll(".slide");
-
-function showSlide(n) {
-  slides[0].classList.remove("active");
-  slides[1].classList.remove("active");
-  slides[2].classList.remove("active");
-  slides[n].classList.add("active");
-}
-
-function nextSlide() {
-  currentSlide = currentSlide + 1;
-  if (currentSlide > 2) {
-    currentSlide = 0;
-  }
-  showSlide(currentSlide);
-}
-
-function prevSlide() {
-  currentSlide = currentSlide - 1;
-  if (currentSlide < 0) {
-    currentSlide = 2;
-  }
-  showSlide(currentSlide);
-}
+/**
+ * Well Chosen - Curated Gift Catalog Data
+ * All products mapped to clean local assets in images/
+ */
 
 const products = [
   {
     id: 1,
-    name: "Scented Candle Set",
+    name: "Aesthetic Scented Candle Set",
     price: 599,
+    originalPrice: 799,
     category: "home",
-    occasion: "birthday",
-    image: "https://via.placeholder.com/250",
-    rating: 4.5
+    categoryLabel: "Home Decor",
+    occasion: ["birthday", "anniversary", "corporate", "festive"],
+    recipient: ["friend", "partner", "colleague", "parents"],
+    vibe: "cozy",
+    vibeLabel: "Aesthetic & Cozy",
+    image: "images/aesthetic-scented-candles.jpg",
+    rating: 4.8,
+    reviews: 124,
+    description: "Hand-poured soy wax candles with soothing lavender and vanilla notes in reusable pastel glass jars.",
+    trending: true,
+    badge: "Bestseller"
   },
   {
     id: 2,
-    name: "Personalized Mug",
-    price: 349,
-    category: "personalized",
-    occasion: "anniversary",
-    image: "https://via.placeholder.com/250",
-    rating: 4.2
+    name: "Festive Diwali Celebration Hamper",
+    price: 1499,
+    originalPrice: 1999,
+    category: "hamper",
+    categoryLabel: "Gift Hamper",
+    occasion: ["festive", "corporate", "wedding"],
+    recipient: ["family", "colleague", "parents"],
+    vibe: "gourmet",
+    vibeLabel: "Gourmet Treats",
+    image: "images/diwali-hamper.jpg",
+    rating: 4.9,
+    reviews: 210,
+    description: "Premium handcrafted gift box with California almonds, roasted cashews, brass diya pair, and organic honey.",
+    trending: true,
+    badge: "Festive Special"
   },
   {
     id: 3,
-    name: "Gift Hamper",
-    price: 1299,
-    category: "hamper",
-    occasion: "corporate",
-    image: "https://via.placeholder.com/250",
-    rating: 4.8
+    name: "Sunshine Rose & Tulip Bouquet",
+    price: 899,
+    originalPrice: 1199,
+    category: "flowers",
+    categoryLabel: "Fresh Flowers",
+    occasion: ["birthday", "anniversary", "valentine"],
+    recipient: ["partner", "friend", "parents"],
+    vibe: "romantic",
+    vibeLabel: "Romantic & Floral",
+    image: "images/sunshine-flower-bouquet.jpg",
+    rating: 4.7,
+    reviews: 88,
+    description: "Hand-tied bouquet of fresh blushing roses, pure white tulips, eucalyptus, and baby's breath with a 'You are sunshine' card.",
+    trending: false,
+    badge: "Fresh Daily"
   },
   {
     id: 4,
-    name: "Chocolate Box",
-    price: 449,
+    name: "Velvet Heart Artisan Chocolates",
+    price: 749,
+    originalPrice: 999,
     category: "food",
-    occasion: "anniversary",
-    image: "https://via.placeholder.com/250",
-    rating: 4.6
+    categoryLabel: "Chocolates",
+    occasion: ["valentine", "anniversary", "birthday"],
+    recipient: ["partner", "friend"],
+    vibe: "romantic",
+    vibeLabel: "Romantic & Gourmet",
+    image: "images/heart-chocolate-box.jpg",
+    rating: 4.9,
+    reviews: 176,
+    description: "36 handcrafted truffles with rich dark cocoa, hazelnut praline, and ruby berry ganache nestled in a crimson velvet heart box.",
+    trending: true,
+    badge: "Trending"
   },
   {
     id: 5,
-    name: "Rakhi Special Combo",
-    price: 799,
-    category: "personalized",
-    occasion: "rakhi",
-    image: "https://via.placeholder.com/250",
-    rating: 4.3
+    name: "Luxury Red Roses Grand Bouquet",
+    price: 999,
+    originalPrice: 1399,
+    category: "flowers",
+    categoryLabel: "Fresh Flowers",
+    occasion: ["valentine", "anniversary"],
+    recipient: ["partner"],
+    vibe: "romantic",
+    vibeLabel: "Romantic & Floral",
+    image: "images/luxury-red-roses.jpg",
+    rating: 5.0,
+    reviews: 342,
+    description: "24 premium long-stem crimson roses wrapped in soft aesthetic frosted Korean floral paper with a satin ribbon.",
+    trending: true,
+    badge: "Popular"
   },
   {
     id: 6,
-    name: "Photo Frame",
-    price: 299,
+    name: "Glowing Memory Floral Frame",
+    price: 1199,
+    originalPrice: 1599,
+    category: "personalized",
+    categoryLabel: "Personalized",
+    occasion: ["anniversary", "wedding", "birthday"],
+    recipient: ["partner", "parents", "friend"],
+    vibe: "keepsake",
+    vibeLabel: "Personal & Keepsake",
+    image: "images/custom-floral-memory-frame.jpg",
+    rating: 4.9,
+    reviews: 150,
+    description: "Custom shadow box with preserved everlasting botanicals, your personalized photo, and embedded warm LED fairy lights.",
+    trending: true,
+    badge: "Unique"
+  },
+  {
+    id: 7,
+    name: "Peacock Kundan Rakhi Set of 2",
+    price: 499,
+    originalPrice: 699,
+    category: "festive",
+    categoryLabel: "Festive Special",
+    occasion: ["rakhi"],
+    recipient: ["siblings", "family"],
+    vibe: "keepsake",
+    vibeLabel: "Traditional & Festive",
+    image: "images/peacock-rakhi-combo.jpg",
+    rating: 4.8,
+    reviews: 95,
+    description: "Intricately handcrafted peacock enamel & Kundan stone Rakhis paired with complimentary organic roli and chawal.",
+    trending: false,
+    badge: "Handcrafted"
+  },
+  {
+    id: 8,
+    name: "Custom Family Collage Ceramic Mug",
+    price: 399,
+    originalPrice: 549,
+    category: "personalized",
+    categoryLabel: "Personalized",
+    occasion: ["birthday", "anniversary", "parents"],
+    recipient: ["parents", "family", "friend"],
+    vibe: "keepsake",
+    vibeLabel: "Personal & Keepsake",
+    image: "images/family-collage-mug.jpg",
+    rating: 4.6,
+    reviews: 215,
+    description: "High-grade 350ml gloss ceramic coffee mug personalized with a multi-photo memory collage. Microwave and dishwasher safe.",
+    trending: false,
+    badge: "Under ₹500"
+  },
+  {
+    id: 9,
+    name: "Soap Flower Love Collage Frame",
+    price: 699,
+    originalPrice: 899,
+    category: "personalized",
+    categoryLabel: "Personalized",
+    occasion: ["valentine", "anniversary", "wedding"],
+    recipient: ["partner", "friend"],
+    vibe: "keepsake",
+    vibeLabel: "Personal & Keepsake",
+    image: "images/soap-flower-frame.jpg",
+    rating: 4.7,
+    reviews: 64,
+    description: "Artistic heart-shaped collage combining lightly scented everlasting soap roses and custom mini-print memories.",
+    trending: false,
+    badge: "Sweet Gift"
+  },
+  {
+    id: 10,
+    name: "Sunflower & Red Rose Bouquet",
+    price: 799,
+    originalPrice: 1099,
+    category: "flowers",
+    categoryLabel: "Fresh Flowers",
+    occasion: ["birthday", "corporate", "wedding"],
+    recipient: ["friend", "colleague", "parents"],
+    vibe: "cozy",
+    vibeLabel: "Aesthetic & Cozy",
+    image: "images/sunflower-rose-bouquet.jpg",
+    rating: 4.8,
+    reviews: 112,
+    description: "Radiant golden sunflower crowned by fresh crimson roses and baby's breath, wrapped in elegant black and gold craft wrap.",
+    trending: false,
+    badge: "Bright & Cheerful"
+  },
+  {
+    id: 11,
+    name: "Botanical Essence Perfume Collection",
+    price: 999,
+    originalPrice: 1499,
+    category: "fragrance",
+    categoryLabel: "Fragrance",
+    occasion: ["anniversary", "birthday", "wedding", "corporate"],
+    recipient: ["partner", "friend", "parents"],
+    vibe: "luxury",
+    vibeLabel: "Luxury & Elegance",
+    image: "images/luxury-perfume-set.jpg",
+    rating: 4.9,
+    reviews: 189,
+    description: "Aesthetic gift box featuring 8 miniature artisanal perfumes infused with floating botanical petals and delicate floral accords.",
+    trending: true,
+    badge: "Luxury Pick"
+  },
+  {
+    id: 12,
+    name: "Watercolor Pet Portrait Ceramic Mug",
+    price: 349,
+    originalPrice: 499,
+    category: "personalized",
+    categoryLabel: "Personalized",
+    occasion: ["birthday", "corporate"],
+    recipient: ["friend", "partner", "siblings"],
+    vibe: "keepsake",
+    vibeLabel: "Personal & Keepsake",
+    image: "images/pet-portrait-mug.jpg",
+    rating: 4.9,
+    reviews: 260,
+    description: "Heartwarming custom pet watercolor illustration printed in ultra-vivid colors on premium porcelain.",
+    trending: true,
+    badge: "Top Rated"
+  },
+  {
+    id: 13,
+    name: "Artisan Chocolate Truffle Box",
+    price: 449,
+    originalPrice: 599,
+    category: "food",
+    categoryLabel: "Chocolates",
+    occasion: ["birthday", "corporate", "festive", "anniversary"],
+    recipient: ["colleague", "friend", "family", "siblings"],
+    vibe: "gourmet",
+    vibeLabel: "Gourmet Treats",
+    image: "images/artisan-chocolate-box.jpg",
+    rating: 4.6,
+    reviews: 143,
+    description: "16 assorted handcrafted truffles: dark hazelnut, sea salt caramel, white chocolate vanilla, and roasted almond crunch.",
+    trending: false,
+    badge: "Under ₹500"
+  },
+  {
+    id: 14,
+    name: "Royal Celebration Deluxe Hamper",
+    price: 1299,
+    originalPrice: 1799,
+    category: "hamper",
+    categoryLabel: "Gift Hamper",
+    occasion: ["corporate", "wedding", "anniversary", "birthday"],
+    recipient: ["colleague", "family", "partner"],
+    vibe: "luxury",
+    vibeLabel: "Luxury & Elegance",
+    image: "images/festive-gift-hamper.jpg",
+    rating: 4.8,
+    reviews: 98,
+    description: "Curated gift box featuring aromatic tea blends, hand-carved candle, organic berry cookies, and a custom greeting card.",
+    trending: true,
+    badge: "Curator's Choice"
+  },
+  {
+    id: 15,
+    name: "Cozy Pastel Aromatherapy Candle",
+    price: 499,
+    originalPrice: 699,
     category: "home",
-    occasion: "birthday",
-    image: "https://via.placeholder.com/250",
-    rating: 4.1
+    categoryLabel: "Home Decor",
+    occasion: ["birthday", "festive", "corporate"],
+    recipient: ["friend", "colleague", "siblings"],
+    vibe: "cozy",
+    vibeLabel: "Aesthetic & Cozy",
+    image: "images/cozy-candle-decor.jpg",
+    rating: 4.7,
+    reviews: 84,
+    description: "Minimalist pastel ceramic vessel filled with clean-burning coconut soy wax scented with cedarwood and white tea.",
+    trending: false,
+    badge: "Eco Friendly"
   }
 ];
 
-  const searchIcon = document.querySelector(".fa-magnifying-glass");
-
-searchIcon.addEventListener("click", function(e){
-    e.preventDefault();
-
-    document.getElementById("searchBox").style.display = "block";
-});
-
-
-
+// Helper functions for easy filtering and searching
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = products;
+}
