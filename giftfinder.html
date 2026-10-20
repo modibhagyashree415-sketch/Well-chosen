@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Finder Quiz - Well Chosen | Smart Gift Recommendation</title>
+  <meta name="description" content="Take our interactive gift finder quiz to get handpicked, personalized gift recommendations for birthdays, anniversaries, weddings, and every celebration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="logo">Well Chosen</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="occasions.html">Occasions</a></li>
+      <li><a href="giftfinder.html" class="active">Gift Finder</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-icons">
+      <a href="#" id="searchBtn" title="Search Gifts"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" id="wishlistBtn" title="Saved Wishlist"><i class="fa-solid fa-heart"></i></a>
+      <a href="#" id="cartBtn" title="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+
+    <button class="hamburger" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Quiz Hero Banner -->
+  <header class="quiz-hero">
+    <div class="quiz-hero-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Smart Gift Assistant</div>
+    <h1>Find the Perfect Gift in 30 Seconds</h1>
+    <p>Tell us a little about who you're celebrating and their personality. We'll curate personalized recommendations they'll truly adore.</p>
+  </header>
+
+  <!-- Main Quiz Container -->
+  <main class="quiz-wrapper">
+    <div id="quizContainer" class="quiz-card-box">
+      <!-- Progress Bar -->
+      <div class="quiz-header-bar">
+        <span id="quizStepNumber" class="step-indicator">Question 1 of 4</span>
+        <div class="progress-track">
+          <div id="quizProgressBar" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Step 1: Recipient -->
+      <div class="quiz-step active" data-step="1" data-step-key="recipient">
+        <h2 class="question-title">1. Who are you shopping for?</h2>
+        <p class="question-subtitle">Select the lucky person receiving this gift.</p>
+        <div class="options-grid">
+          <button type="button" class="quiz-option" data-value="partner">
+            <span class="opt-icon">💍</span>
+            <span class="opt-text">
+              <strong>Partner / Spouse</strong>
+              <small>Boyfriend, girlfriend, husband, or wife</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="friend">
+            <span class="opt-icon">👯</span>
+            <span class="opt-text">
+              <strong>Best Friend</strong>
+              <small>Close buddy or longtime companion</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="parents">
+            <span class="opt-icon">🏡</span>
+            <span class="opt-text">
+              <strong>Parents & Family</strong>
+              <small>Mom, Dad, in-laws, or elders</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="siblings">
+            <span class="opt-icon">🤝</span>
+            <span class="opt-text">
+              <strong>Brother or Sister</strong>
+              <small>Sibling bonding, Rakhi, or banter</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="colleague">
+            <span class="opt-icon">💼</span>
+            <span class="opt-text">
+              <strong>Colleague or Client</strong>
+              <small>Professional, tasteful, and elegant</small>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Occasion -->
+      <div class="quiz-step" data-step="2" data-step-key="occasion">
+        <h2 class="question-title">2. What is the special occasion?</h2>
+        <p class="question-subtitle">Every celebration calls for its own memorable touch.</p>
+        <div class="options-grid">
+          <button type="button" class="quiz-option" data-value="birthday">
+            <span class="opt-icon">🎂</span>
+            <span class="opt-text">
+              <strong>Birthday</strong>
+              <small>Make their milestone day unforgettable</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="anniversary">
+            <span class="opt-icon">🥂</span>
+            <span class="opt-text">
+              <strong>Anniversary</strong>
+              <small>Celebrating love, milestones, and togetherness</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="valentine">
+            <span class="opt-icon">💖</span>
+            <span class="opt-text">
+              <strong>Valentine's Day</strong>
+              <small>Heartfelt romantic romance & blooms</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="wedding">
+            <span class="opt-icon">🎊</span>
+            <span class="opt-text">
+              <strong>Wedding / Reception</strong>
+              <small>Thoughtful blessings for the newlyweds</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="festive">
+            <span class="opt-icon">🪔</span>
+            <span class="opt-text">
+              <strong>Festive / Diwali / Rakhi</strong>
+              <small>Festive hampers, traditions, and sweets</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="corporate">
+            <span class="opt-icon">✨</span>
+            <span class="opt-text">
+              <strong>Just Because / Thank You</strong>
+              <small>A spontaneous surprise or appreciation</small>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Vibe -->
+      <div class="quiz-step" data-step="3" data-step-key="vibe">
+        <h2 class="question-title">3. What vibe best matches them?</h2>
+        <p class="question-subtitle">Pick the personality or style they gravitate toward.</p>
+        <div class="options-grid">
+          <button type="button" class="quiz-option" data-value="cozy">
+            <span class="opt-icon">🕯️</span>
+            <span class="opt-text">
+              <strong>Aesthetic & Cozy</strong>
+              <small>Scented soy candles, warm home vibes</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="romantic">
+            <span class="opt-icon">🌹</span>
+            <span class="opt-text">
+              <strong>Romantic & Floral</strong>
+              <small>Fresh roses, bouquets, and love notes</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="gourmet">
+            <span class="opt-icon">🍫</span>
+            <span class="opt-text">
+              <strong>Gourmet Sweets & Chocolates</strong>
+              <small>Artisan truffles, dry fruit hampers</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="keepsake">
+            <span class="opt-icon">🖼️</span>
+            <span class="opt-text">
+              <strong>Personal & Keepsake</strong>
+              <small>Custom photo frames, personalized mugs</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="luxury">
+            <span class="opt-icon">✨</span>
+            <span class="opt-text">
+              <strong>Luxury & Indulgent</strong>
+              <small>Deluxe hampers and bespoke perfumes</small>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4: Budget -->
+      <div class="quiz-step" data-step="4" data-step-key="budget">
+        <h2 class="question-title">4. What is your comfortable budget?</h2>
+        <p class="question-subtitle">We have thoughtful, high-quality choices at every price point.</p>
+        <div class="options-grid">
+          <button type="button" class="quiz-option" data-value="under500">
+            <span class="opt-icon">🏷️</span>
+            <span class="opt-text">
+              <strong>Under ₹500</strong>
+              <small>Pocket-friendly & meaningful tokens</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="500-1000">
+            <span class="opt-icon">⭐</span>
+            <span class="opt-text">
+              <strong>₹500 - ₹1000</strong>
+              <small>The sweet spot for premium individual gifts</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="above1000">
+            <span class="opt-icon">💎</span>
+            <span class="opt-text">
+              <strong>Above ₹1000</strong>
+              <small>Grand hampers, bouquets & luxury sets</small>
+            </span>
+          </button>
+          <button type="button" class="quiz-option" data-value="any">
+            <span class="opt-icon">🎁</span>
+            <span class="opt-text">
+              <strong>Any Budget</strong>
+              <small>Show me the highest-rated recommendations</small>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="quiz-nav-row">
+        <button type="button" id="prevStepBtn" class="quiz-btn-prev">
+          <i class="fa-solid fa-arrow-left"></i> Previous
+        </button>
+        <button type="button" id="nextStepBtn" class="quiz-btn-next">
+          Skip Question <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading Animation -->
+    <div id="quizLoading" class="quiz-loading-state" style="display: none;">
+      <div class="spinner-box">
+        <i class="fa-solid fa-gift fa-bounce"></i>
+      </div>
+      <h3>Curating the Most Thoughtful Gifts...</h3>
+      <p>Analyzing recipient preferences, occasion details, and product ratings.</p>
+    </div>
+
+    <!-- Results Section -->
+    <section id="quizResultsContainer" class="quiz-results-container" style="display: none;">
+      <div class="results-header">
+        <span class="results-kicker">✨ Perfect Matches</span>
+        <h2>Your Curated Gift Recommendations</h2>
+        <p id="quizResultsSubtitle" class="results-sub"></p>
+      </div>
+
+      <div id="quizResultsGrid" class="product-grid">
+        <!-- Dynamically injected by js/quiz.js -->
+      </div>
+
+      <div class="results-footer-actions">
+        <button type="button" id="restartQuizBtn" class="quiz-btn-restart">
+          <i class="fa-solid fa-rotate-left"></i> Retake Quiz
+        </button>
+        <a href="shop.html" class="quiz-btn-shop">
+          <i class="fa-solid fa-bag-shopping"></i> Explore All Gifts
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Well Chosen</h3>
+        <p>Making thoughtful gifting effortless, personal, and memorable for every occasion.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop All Gifts</a>
+        <a href="giftfinder.html">Gift Finder Quiz</a>
+        <a href="occasions.html">Shop by Occasion</a>
+      </div>
+      <div class="footer-col">
+        <h4>About & Support</h4>
+        <a href="about.html">Our Story</a>
+        <a href="about.html#credits">Image Credits</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 Well Chosen. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
