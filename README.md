@@ -198,12 +198,13 @@ This repository is structured for zero-configuration, instant deployment on GitH
 ## 🎓 Industrial Training Overview
 
 - **Project Title:** Well Chosen — Curated Gifting & Recommendation Web Platform
-- **Developer:** Bhagyashree Modi
+- **Owner & Developer:** Bhagya shri modi
 - **Domain:** Web Development & Front-End Engineering
 - **Objectives Fulfilled:**
   - Implemented responsive, component-based user interfaces following modern design standards.
   - Engineered client-side state persistence for cart and wishlist using modern browser Web Storage APIs.
   - Developed an interactive algorithmic recommendation quiz matching user inputs against product properties.
+  - Built interactive user authentication with customized Store Owner profile view.
   - Followed production-grade version control practices with clean, modular, and descriptive Git commits.
 
 ---
@@ -217,4 +218,4 @@ In alignment with educational portfolio guidelines and fair-use attribution best
 
 ---
 
-*© 2026 Well Chosen. Crafted with care by Bhagyashree Modi.*
+*© 2026 Well Chosen. Crafted with care by Bhagya shri modi (Platform Owner).*

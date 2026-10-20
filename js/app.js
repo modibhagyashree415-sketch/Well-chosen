@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSlider();
   initCartAndWishlist();
   initModal();
+  initAuth();
 });
 
 /* -----------------------------------------
@@ -511,3 +512,250 @@ window.openProductQuickView = function(productId) {
 function escapeHtml(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
+
+/* -----------------------------------------
+   6. USER LOGIN & ACCOUNT SYSTEM
+----------------------------------------- */
+let currentUser = JSON.parse(localStorage.getItem("wc_user") || "null");
+
+function initAuth() {
+  updateAuthUI();
+  const authBtn = document.getElementById("authBtn");
+  if (authBtn) {
+    authBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (currentUser) {
+        showProfileModal();
+      } else {
+        showAuthModal();
+      }
+    });
+  }
+}
+
+function updateAuthUI() {
+  const authBtn = document.getElementById("authBtn");
+  if (!authBtn) return;
+
+  if (currentUser) {
+    authBtn.classList.add("logged-in");
+    authBtn.title = `Signed in as ${currentUser.name} (${currentUser.role})`;
+    let dot = authBtn.querySelector(".auth-dot");
+    if (!dot) {
+      dot = document.createElement("span");
+      dot.className = "auth-dot";
+      authBtn.appendChild(dot);
+    }
+  } else {
+    authBtn.classList.remove("logged-in");
+    authBtn.title = "Account / Sign In";
+    const dot = authBtn.querySelector(".auth-dot");
+    if (dot) dot.remove();
+  }
+}
+
+window.showAuthModal = function(activeTab = "signin") {
+  const html = `
+    <div class="auth-modal-wrapper">
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab ${activeTab === 'signin' ? 'active' : ''}" onclick="switchAuthTab('signin')">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+        </button>
+        <button type="button" class="auth-tab ${activeTab === 'signup' ? 'active' : ''}" onclick="switchAuthTab('signup')">
+          <i class="fa-solid fa-user-plus"></i> Create Account
+        </button>
+      </div>
+
+      <!-- Quick 1-Click Login for Owner -->
+      <div class="demo-owner-banner" onclick="loginAsOwner()">
+        <div class="demo-owner-left">
+          <div class="demo-crown"><i class="fa-solid fa-crown"></i></div>
+          <div class="demo-owner-text">
+            <h4>Quick Sign In as <strong>Bhagya shri modi</strong></h4>
+            <p>1-Click Owner & Curator Demonstration Access</p>
+          </div>
+        </div>
+        <button type="button" class="demo-login-btn">Sign In →</button>
+      </div>
+
+      <!-- Sign In Tab -->
+      <div id="signinTab" class="auth-tab-content ${activeTab === 'signin' ? 'active' : ''}">
+        <form onsubmit="handleSignInSubmit(event)">
+          <div class="auth-field">
+            <label for="authEmail"><i class="fa-regular fa-envelope"></i> Email Address</label>
+            <input type="email" id="authEmail" placeholder="e.g. bhagyashri@example.com" required value="bhagyashri.modi@wellchosen.com">
+          </div>
+          <div class="auth-field">
+            <label for="authPassword"><i class="fa-solid fa-lock"></i> Password</label>
+            <input type="password" id="authPassword" placeholder="Enter your password" required value="••••••••">
+          </div>
+          <div class="auth-options">
+            <label class="remember-label">
+              <input type="checkbox" checked> Remember me
+            </label>
+            <a href="#" class="forgot-link" onclick="event.preventDefault(); alert('Password reset link has been dispatched to your email address!');">Forgot password?</a>
+          </div>
+          <button type="submit" class="auth-submit-btn">
+            <span>Sign In to Well Chosen</span> <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Sign Up Tab -->
+      <div id="signupTab" class="auth-tab-content ${activeTab === 'signup' ? 'active' : ''}">
+        <form onsubmit="handleSignUpSubmit(event)">
+          <div class="auth-field">
+            <label for="signupName"><i class="fa-regular fa-user"></i> Full Name</label>
+            <input type="text" id="signupName" placeholder="e.g. Bhagya shri modi" required>
+          </div>
+          <div class="auth-field">
+            <label for="signupEmail"><i class="fa-regular fa-envelope"></i> Email Address</label>
+            <input type="email" id="signupEmail" placeholder="e.g. bhagyashri@example.com" required>
+          </div>
+          <div class="auth-field">
+            <label for="signupPassword"><i class="fa-solid fa-lock"></i> Create Password</label>
+            <input type="password" id="signupPassword" placeholder="Create a secure password" required minlength="6">
+          </div>
+          <button type="submit" class="auth-submit-btn">
+            <span>Create Free Account</span> <i class="fa-solid fa-user-check"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  `;
+
+  openGlobalModal("Account Access", html);
+};
+
+window.switchAuthTab = function(tabName) {
+  const tabs = document.querySelectorAll(".auth-tab");
+  const contents = document.querySelectorAll(".auth-tab-content");
+
+  tabs.forEach((t, i) => {
+    t.classList.toggle("active", (i === 0 && tabName === 'signin') || (i === 1 && tabName === 'signup'));
+  });
+
+  contents.forEach(c => {
+    c.classList.toggle("active", c.id === `${tabName}Tab`);
+  });
+};
+
+window.loginAsOwner = function() {
+  currentUser = {
+    name: "Bhagya shri modi",
+    email: "bhagyashri.modi@wellchosen.com",
+    role: "Store Owner & Lead Curator",
+    isOwner: true,
+    joined: "Member since 2026"
+  };
+  localStorage.setItem("wc_user", JSON.stringify(currentUser));
+  updateAuthUI();
+  closeGlobalModal();
+  showToast(`Welcome back, Bhagya shri modi! 👑`, "success");
+};
+
+window.handleSignInSubmit = function(e) {
+  e.preventDefault();
+  const emailInput = document.getElementById("authEmail").value.trim();
+  const isOwner = emailInput.toLowerCase().includes("bhagya");
+
+  currentUser = {
+    name: isOwner ? "Bhagya shri modi" : emailInput.split("@")[0],
+    email: emailInput,
+    role: isOwner ? "Store Owner & Lead Curator" : "Valued Customer",
+    isOwner: isOwner,
+    joined: "Member since 2026"
+  };
+  localStorage.setItem("wc_user", JSON.stringify(currentUser));
+  updateAuthUI();
+  closeGlobalModal();
+  showToast(`Welcome back, ${currentUser.name}! ${isOwner ? '👑' : '👋'}`, "success");
+};
+
+window.handleSignUpSubmit = function(e) {
+  e.preventDefault();
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim();
+  const isOwner = name.toLowerCase().includes("bhagya");
+
+  currentUser = {
+    name: name,
+    email: email,
+    role: isOwner ? "Store Owner & Lead Curator" : "Valued Customer",
+    isOwner: isOwner,
+    joined: "Member since 2026"
+  };
+  localStorage.setItem("wc_user", JSON.stringify(currentUser));
+  updateAuthUI();
+  closeGlobalModal();
+  showToast(`Welcome to Well Chosen, ${name}! 🎉`, "success");
+};
+
+window.showProfileModal = function() {
+  if (!currentUser) return;
+
+  const initials = currentUser.name.split(" ").map(n => n[0]).join("").toUpperCase();
+  const cartCount = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+  const wishlistCount = wishlist.length;
+
+  const html = `
+    <div class="profile-card-modal">
+      <div class="profile-avatar-row">
+        <div class="profile-avatar ${currentUser.isOwner ? 'owner-avatar' : ''}">
+          <span>${initials || 'U'}</span>
+          ${currentUser.isOwner ? `<i class="fa-solid fa-crown owner-crown-badge"></i>` : ''}
+        </div>
+        <div class="profile-meta">
+          <h3>${currentUser.name}</h3>
+          <p class="profile-email">${currentUser.email}</p>
+          <span class="profile-role-badge ${currentUser.isOwner ? 'owner-badge' : ''}">
+            ${currentUser.isOwner ? '<i class="fa-solid fa-gem"></i> ' : ''}${currentUser.role}
+          </span>
+        </div>
+      </div>
+
+      <div class="profile-stats-grid">
+        <div class="profile-stat-box">
+          <span class="stat-num">${cartCount}</span>
+          <span class="stat-lbl">Cart Items</span>
+        </div>
+        <div class="profile-stat-box">
+          <span class="stat-num">${wishlistCount}</span>
+          <span class="stat-lbl">Wishlist</span>
+        </div>
+        <div class="profile-stat-box">
+          <span class="stat-num">5</span>
+          <span class="stat-lbl">Orders Placed</span>
+        </div>
+      </div>
+
+      <div class="profile-recent-orders">
+        <h4>Recent Order</h4>
+        <div class="order-item-snippet">
+          <i class="fa-solid fa-box-open"></i>
+          <div class="order-text">
+            <strong>Diwali Grand Pooja & Sweets Hamper</strong>
+            <small>Order #WC-2026-92 • Delivered</small>
+          </div>
+          <span class="order-status-tag">Delivered</span>
+        </div>
+      </div>
+
+      <div class="profile-actions-row">
+        <button type="button" class="profile-logout-btn" onclick="logoutUser()">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+        </button>
+      </div>
+    </div>
+  `;
+
+  openGlobalModal("User Account", html);
+};
+
+window.logoutUser = function() {
+  currentUser = null;
+  localStorage.removeItem("wc_user");
+  updateAuthUI();
+  closeGlobalModal();
+  showToast("Signed out successfully.", "info");
+};
