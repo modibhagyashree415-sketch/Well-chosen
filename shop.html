@@ -3,37 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop - Well Chosen</title>
+  <title>Shop All Curated Gifts - Well Chosen</title>
+  <meta name="description" content="Explore our complete collection of curated gifts, personalized keepsakes, luxury bouquets, hampers, and artisanal chocolates for every occasion.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
-    <a href="index.html">Well Chosen</a>
+    <a href="index.html" class="logo">Well Chosen</a>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Shop</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
       <li><a href="occasions.html">Occasions</a></li>
+      <li><a href="giftfinder.html">Gift Finder</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+
     <div class="nav-icons">
-      <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-      <a href="#"><i class="fa-solid fa-heart"></i></a>
-      <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+      <a href="#" id="searchBtn" title="Search Gifts"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" id="wishlistBtn" title="Saved Wishlist"><i class="fa-solid fa-heart"></i></a>
+      <a href="#" id="cartBtn" title="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
+
+    <button class="hamburger" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </nav>
 
-  <h1 class="shop-title">All Gifts</h1>
-  <div class="shop-grid">
-    <div class="product-card"><img src="ideas de ambiente.jpg"><h3>Scented Candle Set</h3><p>₹599</p></div>
-    <div class="product-card"><img src="Personalized Family Colras Coffee Mug, Custom Picture Collage Multi Image Tea Cup Keepsake Memory Ceramic Drinkware Mom Dad Present Gift.jpg"><h3>Personalized Mug</h3><p>₹349</p></div>
-    <div class="product-card"><img src="Diwali hampers for your loved ones✨.jpg"><h3>Gift Hamper</h3><p>₹1299</p></div>
-    <div class="product-card"><img src="download (4).jpg"><h3>Chocolate Box</h3><p>₹449</p></div>
-    <div class="product-card"><img src="Peacock Rakhi combo of 2.jpg"><h3>Rakhi Combo</h3><p>₹799</p></div>
-    <div class="product-card"><img src="Soap Flower Frame [ love shape photo Collage ].jpg"><h3>Photo Frame</h3><p>₹299</p></div>
-    <div class="product-card"><img src="Luxury Red Roses Bouquet with Soft Aesthetic Vibes.jpg"><h3>Flower Bouquet</h3><p>₹549</p></div>
-    <div class="product-card"><img src="download (2).jpg"><h3>Perfume Set</h3><p>₹999</p></div>
-  </div>
+  <!-- Shop Header -->
+  <header class="shop-header">
+    <div class="shop-header-inner">
+      <h1>All Curated Gifts</h1>
+      <p>Handcrafted keepsakes, fresh floral creations, and deluxe hampers designed to create memories.</p>
+    </div>
+  </header>
+
+  <!-- Main Shop Content -->
+  <main class="shop-container">
+
+    <!-- Category Filter Chips -->
+    <div class="shop-category-bar" aria-label="Product categories">
+      <button type="button" class="shop-filter-chip active" data-category="all">All Gifts</button>
+      <button type="button" class="shop-filter-chip" data-category="flowers">🌸 Fresh Flowers</button>
+      <button type="button" class="shop-filter-chip" data-category="hamper">🧺 Gift Hampers</button>
+      <button type="button" class="shop-filter-chip" data-category="personalized">🖼️ Personalized</button>
+      <button type="button" class="shop-filter-chip" data-category="food">🍫 Chocolates</button>
+      <button type="button" class="shop-filter-chip" data-category="home">🕯️ Home & Candles</button>
+      <button type="button" class="shop-filter-chip" data-category="fragrance">✨ Perfumes</button>
+      <button type="button" class="shop-filter-chip" data-category="festive">🪔 Festive & Rakhi</button>
+    </div>
+
+    <!-- Filter Control Toolbar -->
+    <div class="shop-toolbar">
+      <div class="toolbar-left">
+        <div class="shop-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="shopSearchInput" placeholder="Filter gifts by keyword..." autocomplete="off">
+        </div>
+
+        <div class="shop-select-wrap">
+          <label for="shopOccasionFilter" class="sr-only">Occasion</label>
+          <select id="shopOccasionFilter">
+            <option value="all">All Occasions</option>
+            <option value="birthday">Birthday</option>
+            <option value="anniversary">Anniversary</option>
+            <option value="wedding">Wedding</option>
+            <option value="valentine">Valentine's Day</option>
+            <option value="rakhi">Rakhi & Festive</option>
+            <option value="corporate">Corporate & Thank You</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="toolbar-right">
+        <div class="price-range-pills">
+          <button type="button" class="price-filter-pill active" data-range="all">All Budgets</button>
+          <button type="button" class="price-filter-pill" data-range="under500">&lt; ₹500</button>
+          <button type="button" class="price-filter-pill" data-range="500-1000">₹500 - ₹1000</button>
+          <button type="button" class="price-filter-pill" data-range="above1000">&gt; ₹1000</button>
+        </div>
+
+        <div class="shop-select-wrap">
+          <label for="shopSortSelect" class="sr-only">Sort by</label>
+          <select id="shopSortSelect">
+            <option value="featured">Sort: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Count & Reset -->
+    <div class="shop-status-bar">
+      <span id="shopItemCount">Showing 15 gifts</span>
+      <button type="button" id="resetShopFilters" class="clear-filters-link">
+        <i class="fa-solid fa-rotate-left"></i> Reset Filters
+      </button>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="shopProductGrid" class="product-grid shop-grid-custom">
+      <!-- Injected dynamically by js/shop.js -->
+    </div>
+
+    <!-- Quiz Helper Callout -->
+    <aside class="shop-quiz-callout">
+      <div class="callout-icon">✨</div>
+      <div class="callout-text">
+        <h3>Need help choosing the right gift?</h3>
+        <p>Take our 30-second interactive Gift Finder Quiz to get tailored recommendations.</p>
+      </div>
+      <a href="giftfinder.html" class="callout-btn">Start Quiz →</a>
+    </aside>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Well Chosen</h3>
+        <p>Making thoughtful gifting effortless, personal, and memorable for every occasion.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop All Gifts</a>
+        <a href="giftfinder.html">Gift Finder Quiz</a>
+        <a href="occasions.html">Shop by Occasion</a>
+      </div>
+      <div class="footer-col">
+        <h4>About & Support</h4>
+        <a href="about.html">Our Story</a>
+        <a href="about.html#credits">Image Credits</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 Well Chosen. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/shop.js"></script>
 </body>
 </html>
