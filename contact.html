@@ -3,35 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Well Chosen</title>
+  <title>Contact Us - Well Chosen</title>
+  <meta name="description" content="Have questions about custom gifting, express deliveries, or bulk corporate hampers? Get in touch with the Well Chosen concierge team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
-    <a href="index.html">Well Chosen</a>
+    <a href="index.html" class="logo">Well Chosen</a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
       <li><a href="occasions.html">Occasions</a></li>
+      <li><a href="giftfinder.html">Gift Finder</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
+
     <div class="nav-icons">
-      <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-      <a href="#"><i class="fa-solid fa-heart"></i></a>
-      <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+      <a href="#" id="searchBtn" title="Search Gifts"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" id="wishlistBtn" title="Saved Wishlist"><i class="fa-solid fa-heart"></i></a>
+      <a href="#" id="cartBtn" title="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
+
+    <button class="hamburger" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </nav>
 
-  <div class="contact-content">
-    <h1>Contact Us</h1>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required rows="5"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
+  <!-- Contact Hero -->
+  <header class="contact-hero">
+    <div class="contact-hero-badge"><i class="fa-solid fa-envelope-open-text"></i> Concierge Support</div>
+    <h1>We’re Here to Help You Celebrate</h1>
+    <p>Whether you need personalized custom curation, bulk corporate orders, or order tracking, our friendly team is just a message away.</p>
+  </header>
+
+  <main class="contact-page-layout">
+    <div class="contact-grid">
+      <!-- Info Cards Column -->
+      <div class="contact-info-col">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-gift"></i></div>
+          <h3>Custom Gifting Inquiries</h3>
+          <p>Need a customized photo hamper or bulk corporate order? Let our curation stylists assist you.</p>
+          <a href="mailto:concierge@wellchosen.demo" class="contact-link">concierge@wellchosen.demo</a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Express Delivery & Tracking</h3>
+          <p>Questions regarding delivery timelines, same-day dispatch, or packaging requests.</p>
+          <span class="contact-badge-info">Mon - Sat: 9:00 AM – 8:00 PM IST</span>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>Need Instant Guidance?</h3>
+          <p>Don't want to wait for an email? Our interactive Gift Finder Quiz curates recommendations in seconds.</p>
+          <a href="giftfinder.html" class="contact-quiz-btn">Try Gift Finder Quiz →</a>
+        </div>
+      </div>
+
+      <!-- Form Column -->
+      <div class="contact-form-box">
+        <h2>Send Us a Message</h2>
+        <p class="form-sub">Fill out the form below and we'll reply within a few hours.</p>
+
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+          <div class="form-group">
+            <label for="userName">Your Full Name <span class="required">*</span></label>
+            <input type="text" id="userName" placeholder="e.g. Ananya Sharma" required>
+          </div>
+
+          <div class="form-group">
+            <label for="userEmail">Email Address <span class="required">*</span></label>
+            <input type="email" id="userEmail" placeholder="e.g. ananya@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="userSubject">What can we help you with?</label>
+            <select id="userSubject">
+              <option value="recommendation">Gift Recommendation Advice</option>
+              <option value="custom">Custom Photo or Hampers</option>
+              <option value="corporate">Corporate / Bulk Gifting</option>
+              <option value="delivery">Delivery & Order Question</option>
+              <option value="feedback">Feedback & Suggestions</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="userMessage">Your Message <span class="required">*</span></label>
+            <textarea id="userMessage" rows="5" placeholder="Tell us about the occasion, recipient, or your custom request..." required></textarea>
+          </div>
+
+          <button type="submit" id="contactSubmitBtn" class="contact-submit-btn">
+            <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+
+        <div id="contactSuccessMsg" class="contact-success-state" style="display: none;">
+          <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h3>Message Sent Successfully!</h3>
+          <p>Thank you for reaching out to Well Chosen. Our gift concierge team will get back to you shortly.</p>
+          <button class="primary-modal-btn" onclick="resetContactForm()">Send Another Message</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Well Chosen</h3>
+        <p>Making thoughtful gifting effortless, personal, and memorable for every occasion.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop All Gifts</a>
+        <a href="giftfinder.html">Gift Finder Quiz</a>
+        <a href="occasions.html">Shop by Occasion</a>
+      </div>
+      <div class="footer-col">
+        <h4>About & Support</h4>
+        <a href="about.html">Our Story</a>
+        <a href="about.html#credits">Image Credits</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 Well Chosen. All rights reserved.</p>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById("contactForm");
+      const success = document.getElementById("contactSuccessMsg");
+      if (form && success) {
+        form.style.display = "none";
+        success.style.display = "block";
+      }
+    }
+
+    function resetContactForm() {
+      const form = document.getElementById("contactForm");
+      const success = document.getElementById("contactSuccessMsg");
+      if (form && success) {
+        form.reset();
+        form.style.display = "block";
+        success.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>

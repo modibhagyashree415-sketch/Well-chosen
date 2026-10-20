@@ -3,57 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Occasions - Well Chosen</title>
+  <title>Shop by Occasion - Well Chosen</title>
+  <meta name="description" content="Find the perfect curated gift for every celebration: Birthdays, Anniversaries, Weddings, Rakhi, Valentine's Day, and Corporate Milestones.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
-    <a href="index.html">Well Chosen</a>
+    <a href="index.html" class="logo">Well Chosen</a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
-      <li><a href="occasions.html">Occasions</a></li>
+      <li><a href="occasions.html" class="active">Occasions</a></li>
+      <li><a href="giftfinder.html">Gift Finder</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+
     <div class="nav-icons">
-      <a href="shop.html"><i class="fa-solid fa-magnifying-glass"></i></a>
-      <a href="shop.html"><i class="fa-solid fa-heart"></i></a>
-      <a href="shop.html"><i class="fa-solid fa-cart-shopping"></i></a>
+      <a href="#" id="searchBtn" title="Search Gifts"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" id="wishlistBtn" title="Saved Wishlist"><i class="fa-solid fa-heart"></i></a>
+      <a href="#" id="cartBtn" title="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
+
+    <button class="hamburger" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </nav>
 
-  <h1 class="occasions-title">Shop by Occasion</h1>
-  <p class="occasions-subtitle">Find the perfect gift for every celebration</p>
+  <!-- Header -->
+  <header class="shop-header">
+    <div class="shop-header-inner">
+      <h1>Shop by Occasion</h1>
+      <p class="occasions-subtitle">Thoughtful gifts curated specifically for life's most meaningful moments.</p>
+    </div>
+  </header>
 
-  <div class="occasion-grid">
-    <a href="shop.html" class="occasion-card">
-      <img src="https://via.placeholder.com/250/6B2D5C/fff?text=Birthday">
-      <h3>Birthday</h3>
-    </a>
-    <a href="shop.html" class="occasion-card">
-      <img src="https://via.placeholder.com/250/FF6B6B/fff?text=Anniversary">
-      <h3>Anniversary</h3>
-    </a>
-    <a href="shop.html" class="occasion-card">
-      <img src="https://via.placeholder.com/250/E8B54D/fff?text=Wedding">
-      <h3>Wedding</h3>
-    </a>
-    <a href="shop.html" class="occasion-card">
-      <img src="https://via.placeholder.com/250/6B2D5C/fff?text=Rakhi">
-      <h3>Rakhi</h3>
-    </a>
-    <a href="shop.html" class="occasion-card">
-      <img src="https://via.placeholder.com/250/FF6B6B/fff?text=Valentine">
-      <h3>Valentine's Day</h3>
-    </a>
-    <a href="shop.html" class="occasion-card">
-      <img src="https://via.placeholder.com/250/E8B54D/fff?text=Corporate">
-      <h3>Corporate</h3>
-    </a>
-  </div>
+  <!-- Occasions Grid -->
+  <main class="occasions-container">
+    <div class="occasion-grid">
+      <!-- Birthday -->
+      <a href="shop.html?occasion=birthday" class="occasion-card">
+        <div class="occasion-img-box">
+          <img src="images/aesthetic-scented-candles.jpg" alt="Birthday Gifts">
+          <span class="occasion-pill">Explore Gifts</span>
+        </div>
+        <div class="occasion-meta">
+          <h3>🎂 Birthday Celebrations</h3>
+          <p>Scented candles, personalized mugs & festive surprises</p>
+        </div>
+      </a>
 
+      <!-- Anniversary -->
+      <a href="shop.html?occasion=anniversary" class="occasion-card">
+        <div class="occasion-img-box">
+          <img src="images/luxury-red-roses.jpg" alt="Anniversary Gifts">
+          <span class="occasion-pill">Explore Gifts</span>
+        </div>
+        <div class="occasion-meta">
+          <h3>🥂 Romantic Anniversaries</h3>
+          <p>Crimson roses, glowing frames & fine perfumes</p>
+        </div>
+      </a>
+
+      <!-- Wedding -->
+      <a href="shop.html?occasion=wedding" class="occasion-card">
+        <div class="occasion-img-box">
+          <img src="images/custom-floral-memory-frame.jpg" alt="Wedding Gifts">
+          <span class="occasion-pill">Explore Gifts</span>
+        </div>
+        <div class="occasion-meta">
+          <h3>💍 Weddings & Receptions</h3>
+          <p>Preserved floral memory frames & bespoke hampers</p>
+        </div>
+      </a>
+
+      <!-- Rakhi & Festive -->
+      <a href="shop.html?occasion=rakhi" class="occasion-card">
+        <div class="occasion-img-box">
+          <img src="images/peacock-rakhi-combo.jpg" alt="Rakhi & Festive Gifts">
+          <span class="occasion-pill">Explore Gifts</span>
+        </div>
+        <div class="occasion-meta">
+          <h3>🪔 Rakhi & Traditional</h3>
+          <p>Handcrafted peacock Kundan Rakhis & sweet combos</p>
+        </div>
+      </a>
+
+      <!-- Valentine's Day -->
+      <a href="shop.html?occasion=valentine" class="occasion-card">
+        <div class="occasion-img-box">
+          <img src="images/heart-chocolate-box.jpg" alt="Valentine's Day Gifts">
+          <span class="occasion-pill">Explore Gifts</span>
+        </div>
+        <div class="occasion-meta">
+          <h3>💖 Valentine's Romance</h3>
+          <p>Red velvet heart chocolate boxes & fresh bouquets</p>
+        </div>
+      </a>
+
+      <!-- Corporate & Milestone -->
+      <a href="shop.html?occasion=corporate" class="occasion-card">
+        <div class="occasion-img-box">
+          <img src="images/festive-gift-hamper.jpg" alt="Corporate Gifts">
+          <span class="occasion-pill">Explore Gifts</span>
+        </div>
+        <div class="occasion-meta">
+          <h3>💼 Corporate & Thank You</h3>
+          <p>Elegant celebration boxes, teas & artisan dry fruits</p>
+        </div>
+      </a>
+
+      <!-- Diwali & Festive Special -->
+      <a href="shop.html?occasion=festive" class="occasion-card">
+        <div class="occasion-img-box">
+          <img src="images/diwali-hamper.jpg" alt="Diwali & Festive Hampers">
+          <span class="occasion-pill">Explore Gifts</span>
+        </div>
+        <div class="occasion-meta">
+          <h3>✨ Diwali Celebration</h3>
+          <p>Brass diyas, premium dry fruits & festive confections</p>
+        </div>
+      </a>
+
+      <!-- Just Because -->
+      <a href="shop.html?category=flowers" class="occasion-card">
+        <div class="occasion-img-box">
+          <img src="images/sunshine-flower-bouquet.jpg" alt="Fresh Flowers">
+          <span class="occasion-pill">Explore Gifts</span>
+        </div>
+        <div class="occasion-meta">
+          <h3>🌸 Just Because & Cheer</h3>
+          <p>Hand-tied tulips, roses & cheerful sunshine blooms</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Quiz CTA -->
+    <div class="quiz-cta-banner" style="margin-top: 40px;">
+      <div class="quiz-cta-content">
+        <span class="quiz-cta-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Unsure which occasion fits best?</span>
+        <h2>Try Our Interactive Gift Finder</h2>
+        <p>Take our 30-second quiz to instantly match gifts tailored to your exact recipient and budget.</p>
+        <a href="giftfinder.html" class="hero-btn">Launch Gift Finder Quiz →</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -61,14 +163,24 @@
         <p>Making thoughtful gifting effortless, personal, and memorable for every occasion.</p>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Explore</h4>
         <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="shop.html">Shop All Gifts</a>
+        <a href="giftfinder.html">Gift Finder Quiz</a>
+        <a href="occasions.html">Shop by Occasion</a>
+      </div>
+      <div class="footer-col">
+        <h4>About & Support</h4>
+        <a href="about.html">Our Story</a>
+        <a href="about.html#credits">Image Credits</a>
+        <a href="contact.html">Contact Us</a>
       </div>
     </div>
     <p class="footer-bottom">&copy; 2026 Well Chosen. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

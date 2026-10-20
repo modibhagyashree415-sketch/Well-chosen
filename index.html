@@ -3,154 +3,270 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Well Chosen</title>
+  <title>Well Chosen - Thoughtful Curated Gifts for Every Moment</title>
+  <meta name="description" content="Discover handpicked, personalized gifts for birthdays, anniversaries, weddings, festivals, and every milestone that matters. Curated with love.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
-    <a href="index.html">Well Chosen</a>
+    <a href="index.html" class="logo">Well Chosen</a>
     <ul>
-  <li><a href="index.html">Home</a></li>
-  <li><a href="shop.html">Shop</a></li>
-  <li><a href="occasions.html">Occasions</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="contact.html">Contact</a></li>
-</ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="occasions.html">Occasions</a></li>
+      <li><a href="giftfinder.html">Gift Finder</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-<div class="nav-icons">
-  <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-  <a href="#"><i class="fa-solid fa-heart"></i></a>
-  <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
+    <div class="nav-icons">
+      <a href="#" id="searchBtn" title="Search Gifts"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" id="wishlistBtn" title="Saved Wishlist"><i class="fa-solid fa-heart"></i></a>
+      <a href="#" id="cartBtn" title="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
 
-<button class="hamburger">
-  <i class="fa-solid fa-bars"></i>
-</button>
-
+    <button class="hamburger" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </nav>
- <div class="hero">
-  <h1>Find the Perfect Gift, Every Time</h1>
-  <p>Curated gifts for every occasion, every person, every moment that matters.</p>
-  <a href ="giftfinder.html" class="hero-btn">Find a Gift</a>
-</div>
 
-<div id="searchBox" style="display:none; text-align:center;">
-    <input type="text" id="searchInput" placeholder="Search Gifts...">
-</div>
-
-
-
-
-<div class="occasions">
-  <a href="#" class="chip">Birthday</a>
-  <a href="#" class="chip">Anniversary</a>
-  <a href="#" class="chip">Wedding</a>
-  <a href="#" class="chip">Rakhi</a>
-  <a href="#" class="chip">Valentine's Day</a>
-  <a href="#" class="chip">Corporate</a>
-</div>
-
-
-
-<div class="products">
-  <!-- TRENDING PRODUCTS SECTION (PURE HTML) -->
-<div class="trending-section">
-  <h2>Trending Gifts</h2>
-  
-  <div class="product-grid">
-    <!-- Card 1 -->
-    <div class="product-card">
-      <img src="Aesthetic Scented Candles _ Cozy Pastel Home Decor Ideas.jpg" alt="Scented Candle Set">
-      <h3>Scented Candle Set</h3>
-      <p class="category">Category: Home</p>
-      <p class="price">₹599</p>
-      <a href="product.html" class="buy-btn">View Product</a>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-pill"><i class="fa-solid fa-sparkles"></i> Curated Gifting Experience</div>
+    <h1>Find the Perfect Gift, Every Time</h1>
+    <p>Handpicked, beautifully wrapped gifts for every occasion, every person, and every milestone that matters.</p>
+    <div class="hero-actions">
+      <a href="giftfinder.html" class="hero-btn">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Take Gift Finder Quiz
+      </a>
+      <a href="shop.html" class="hero-secondary-btn">
+        <i class="fa-solid fa-bag-shopping"></i> Browse All Gifts
+      </a>
     </div>
+  </header>
 
-    <!-- Card 2 -->
-    <div class="product-card">
-      <img src="download (3).jpg" alt="Personalized Mug">
-      <h3>Personalized Mug</h3>
-      <p class="category">Category: Personalized</p>
-      <p class="price">₹349</p>
-      <a href="product.html" class="buy-btn">View Product</a>
+  <!-- Quick Occasion Chips -->
+  <section class="occasions" aria-label="Occasions filter chips">
+    <a href="shop.html?occasion=birthday" class="chip">🎂 Birthday</a>
+    <a href="shop.html?occasion=anniversary" class="chip">🥂 Anniversary</a>
+    <a href="shop.html?occasion=wedding" class="chip">💍 Wedding</a>
+    <a href="shop.html?occasion=rakhi" class="chip">🪔 Rakhi & Festive</a>
+    <a href="shop.html?occasion=valentine" class="chip">💖 Valentine's Day</a>
+    <a href="shop.html?occasion=corporate" class="chip">💼 Corporate & Thanks</a>
+  </section>
+
+  <!-- Trending Products Section -->
+  <section class="products" aria-label="Trending gifts">
+    <div class="trending-section">
+      <div class="section-title-wrap">
+        <h2>Trending Gifts</h2>
+        <a href="shop.html" class="view-all-link">View All Gifts →</a>
+      </div>
+      
+      <div class="product-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+          <div class="card-img-wrap" onclick="openProductQuickView(1)">
+            <img src="images/aesthetic-scented-candles.jpg" alt="Aesthetic Scented Candle Set">
+            <span class="product-badge-corner">Bestseller</span>
+          </div>
+          <div class="card-details">
+            <h3>Aesthetic Scented Candle Set</h3>
+            <p class="category">Home Decor • Soy Wax</p>
+            <div class="price-rating-row">
+              <span class="price">₹599</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <div class="card-action-btns">
+              <button class="buy-btn" onclick="addToCart(1)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+              <button class="quick-view-btn" onclick="openProductQuickView(1)" title="Quick View">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+          <div class="card-img-wrap" onclick="openProductQuickView(12)">
+            <img src="images/pet-portrait-mug.jpg" alt="Personalized Pet Watercolor Mug">
+            <span class="product-badge-corner">Top Rated</span>
+          </div>
+          <div class="card-details">
+            <h3>Custom Pet Watercolor Mug</h3>
+            <p class="category">Personalized Keepsake</p>
+            <div class="price-rating-row">
+              <span class="price">₹349</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <div class="card-action-btns">
+              <button class="buy-btn" onclick="addToCart(12)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+              <button class="quick-view-btn" onclick="openProductQuickView(12)" title="Quick View">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card">
+          <div class="card-img-wrap" onclick="openProductQuickView(14)">
+            <img src="images/festive-gift-hamper.jpg" alt="Royal Celebration Deluxe Hamper">
+            <span class="product-badge-corner">Curator's Pick</span>
+          </div>
+          <div class="card-details">
+            <h3>Royal Celebration Deluxe Hamper</h3>
+            <p class="category">Luxury Gift Hamper</p>
+            <div class="price-rating-row">
+              <span class="price">₹1299</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <div class="card-action-btns">
+              <button class="buy-btn" onclick="addToCart(14)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+              <button class="quick-view-btn" onclick="openProductQuickView(14)" title="Quick View">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="product-card">
+          <div class="card-img-wrap" onclick="openProductQuickView(4)">
+            <img src="images/heart-chocolate-box.jpg" alt="Velvet Heart Artisan Chocolates">
+            <span class="product-badge-corner">Trending</span>
+          </div>
+          <div class="card-details">
+            <h3>Velvet Heart Artisan Chocolates</h3>
+            <p class="category">Gourmet Belgian Chocolates</p>
+            <div class="price-rating-row">
+              <span class="price">₹749</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <div class="card-action-btns">
+              <button class="buy-btn" onclick="addToCart(4)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+              <button class="quick-view-btn" onclick="openProductQuickView(4)" title="Quick View">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Card 3 -->
-    <div class="product-card">
-      <img src="gift hamper ✨.jpg" alt="Gift Hamper">
-      <h3>Gift Hamper</h3>
-      <p class="category">Category: Hamper</p>
-      <p class="price">₹1299</p>
-      <a href="product.html" class="buy-btn">View Product</a>
+  <!-- Visual Carousel Slider -->
+  <section class="slider-container" aria-label="Featured gift collections banner">
+    <div class="slider">
+      <div class="slide active">
+        <img src="images/sunshine-flower-bouquet.jpg" alt="Sunshine Flower Bouquet">
+        <div class="slide-caption">
+          <span class="slide-tag">Fresh Blooms</span>
+          <h3>Fresh Florals Hand-Tied With Care</h3>
+          <p>Delivered fresh with personalized calligraphy cards.</p>
+          <a href="shop.html?category=flowers" class="slide-btn">Explore Bouquets</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/luxury-red-roses.jpg" alt="Luxury Red Roses">
+        <div class="slide-caption">
+          <span class="slide-tag">Grand Romantics</span>
+          <h3>Milestone Anniversary & Valentine Specials</h3>
+          <p>Classic crimson roses and chocolate heart collections.</p>
+          <a href="shop.html?occasion=valentine" class="slide-btn">Shop Romantic Gifts</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/diwali-hamper.jpg" alt="Festive Hampers">
+        <div class="slide-caption">
+          <span class="slide-tag">Festive Joy</span>
+          <h3>Celebration & Corporate Deluxe Hampers</h3>
+          <p>Artisanal dry fruits, scented diyas, and gourmet confections.</p>
+          <a href="shop.html?category=hamper" class="slide-btn">Browse Hampers</a>
+        </div>
+      </div>
+      <button class="slider-btn prev" onclick="prevSlide()" aria-label="Previous slide">&#10094;</button>
+      <button class="slider-btn next" onclick="nextSlide()" aria-label="Next slide">&#10095;</button>
     </div>
+  </section>
 
-    <!-- Card 4 -->
-    <div class="product-card">
-      <img src="Instagram.jpg" alt="Chocolate Box">
-      <h3>Chocolate Box</h3>
-      <p class="category">Category: Food</p>
-      <p class="price">₹449</p>
-      <a href="product.html" class="buy-btn">View Product</a>
+  <!-- Trust Badges -->
+  <section class="trust-badges" aria-label="Guarantees">
+    <div class="badge-box"><i class="fa-solid fa-sparkles"></i> 100% Handpicked Gifts</div>
+    <div class="badge-box"><i class="fa-solid fa-truck-fast"></i> Express Doorstep Delivery</div>
+    <div class="badge-box"><i class="fa-solid fa-leaf"></i> Eco-Mindful Packaging</div>
+    <div class="badge-box"><i class="fa-solid fa-shield-heart"></i> Happiness Guarantee</div>
+  </section>
+
+  <!-- Stories & Collections -->
+  <section class="stories-section">
+    <h2>Curated Gift Collections</h2>
+    <div class="stories-grid">
+      <div class="story-card">
+        <span class="story-tag">Bespoke Keepsakes</span>
+        <h3>The Thoughtful Curator</h3>
+        <p>Personalized memory frames, watercolor pet mugs, and engraved keepsakes crafted for moments that linger forever.</p>
+        <a href="shop.html?category=personalized" class="story-link">Explore Collection →</a>
+      </div>
+      <div class="story-card">
+        <span class="story-tag">Express Gifting</span>
+        <h3>Same-Day Magic</h3>
+        <p>In a rush? Our express curated combos and ready-to-ship hampers ensure you never miss celebrating a loved one.</p>
+        <a href="shop.html?category=hamper" class="story-link">Explore Collection →</a>
+      </div>
     </div>
-  </div>
-</div>
-  
-</div>
+  </section>
 
-<div class="slider">
-  <img src="https://via.placeholder.com/800x300/6B2D5C/fff?text=Birthday+Gifts" class="slide active">
-  <img src="https://via.placeholder.com/800x300/FF6B6B/fff?text=Anniversary+Specials" class="slide">
-  <img src="https://via.placeholder.com/800x300/E8B54D/fff?text=Corporate+Gifting" class="slide">
-  <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
-  <button class="slider-btn next" onclick="nextSlide()">&#10095;</button>
-</div>
-
-<div class="trust-badges">
-  <div class="badge-box">✨ Handpicked Gifts</div>
-  <div class="badge-box">🚀 Fast Delivery</div>
-  <div class="badge-box">🌱 Eco Packaging</div>
-  <div class="badge-box">🔄 Easy Returns</div>
-</div>
-
-<div class="stories-section">
-  <h2>Gift Stories & Collections</h2>
-  <div class="stories-grid">
-    <div class="story-card">
-      <span class="story-tag">Curated Collection</span>
-      <h3>The Thoughtful Curator</h3>
-      <p>Handmade and personalized keepsakes for people who notice the small details.</p>
-      <a href="shop.html" class="story-link">Explore Collection →</a>
+  <!-- Interactive Quiz Callout Banner -->
+  <section class="quiz-cta-banner">
+    <div class="quiz-cta-content">
+      <span class="quiz-cta-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Not Sure What to Pick?</span>
+      <h2>Let Our AI Gift Finder Choose For You</h2>
+      <p>Answer 4 simple questions in 30 seconds and find the gift guaranteed to make them smile.</p>
+      <a href="giftfinder.html" class="hero-btn">Start 30-Second Quiz →</a>
     </div>
-    <div class="story-card">
-      <span class="story-tag">Last-Minute Lifesaver</span>
-      <h3>Same-Day Magic</h3>
-      <p>Need a gift today? Instant hampers and quick delivery combos.</p>
-      <a href="shop.html" class="story-link">Explore Collection →</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Well Chosen</h3>
+        <p>Making thoughtful gifting effortless, personal, and memorable for every occasion.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop All Gifts</a>
+        <a href="giftfinder.html">Gift Finder Quiz</a>
+        <a href="occasions.html">Shop by Occasion</a>
+      </div>
+      <div class="footer-col">
+        <h4>About & Support</h4>
+        <a href="about.html">Our Story</a>
+        <a href="about.html#credits">Image Credits</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
     </div>
-  </div>
-</div>
+    <p class="footer-bottom">&copy; 2026 Well Chosen. All rights reserved.</p>
+  </footer>
 
-
-<script src="js/app.js"></script>
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-col">
-      <h3>Well Chosen</h3>
-      <p>Making thoughtful gifting effortless, personal, and memorable for every occasion.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <p class="footer-bottom">&copy; 2026 Well Chosen. All rights reserved.</p>
-</footer>
-
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

@@ -3,56 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Well Chosen</title>
+  <title>About Us - Well Chosen</title>
+  <meta name="description" content="Learn about the philosophy behind Well Chosen — making thoughtful gifting effortless, personal, and memorable for every celebration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
-    <a href="index.html">Well Chosen</a>
+    <a href="index.html" class="logo">Well Chosen</a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
       <li><a href="occasions.html">Occasions</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="giftfinder.html">Gift Finder</a></li>
+      <li><a href="about.html" class="active">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+
     <div class="nav-icons">
-      <a href="shop.html"><i class="fa-solid fa-magnifying-glass"></i></a>
-      <a href="shop.html"><i class="fa-solid fa-heart"></i></a>
-      <a href="shop.html"><i class="fa-solid fa-cart-shopping"></i></a>
+      <a href="#" id="searchBtn" title="Search Gifts"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" id="wishlistBtn" title="Saved Wishlist"><i class="fa-solid fa-heart"></i></a>
+      <a href="#" id="cartBtn" title="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
+
+    <button class="hamburger" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </nav>
 
-  <div class="about-content">
+  <!-- About Hero -->
+  <header class="about-hero">
+    <div class="about-hero-badge"><i class="fa-solid fa-sparkles"></i> Our Mission</div>
     <h1>About Well Chosen</h1>
-    <p class="about-sub">Making thoughtful gifting effortless, personal, and memorable for every special moment.</p>
-  </div>
+    <p class="about-sub">Making thoughtful gifting effortless, personal, and deeply memorable for every special moment.</p>
+  </header>
 
-  <div class="about-story">
-    <h2>Our Story</h2>
-    <p>We believe every gift should feel personal. Well Chosen was born out of a simple idea: gifting shouldn't be stressful or generic. Whether it's a birthday, anniversary, wedding, or a last-minute surprise, we curate gifts that tell a story — so you never have to settle for "good enough" again.</p>
-  </div>
+  <!-- Story Section -->
+  <main class="about-main">
+    <section class="about-story-card">
+      <div class="story-text">
+        <h2>The Story Behind Well Chosen</h2>
+        <p>Gifting should never feel stressful, generic, or like an afterthought. Yet so often, we find ourselves scrolling endlessly through generic e-commerce listings, unsure if our gift will truly resonate.</p>
+        <p><strong>Well Chosen</strong> was created to solve that dilemma. Developed as an interactive Web Application & Recommendation Platform, Well Chosen bridges human emotion with smart filtering. By pairing an interactive 4-step Gift Finder Quiz with a handpicked catalog of artisanal candles, everlasting botanicals, handcrafted chocolates, and personalized keepsakes, we ensure every gift tells a heartfelt story.</p>
+      </div>
+      <div class="story-highlight">
+        <div class="stat-box">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Curated Quality</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">30s</span>
+          <span class="stat-label">Smart Quiz Finder</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">0</span>
+          <span class="stat-label">Generic Placeholders</span>
+        </div>
+      </div>
+    </section>
 
-  <h2 class="why-title">Why Choose Us?</h2>
-  <div class="values-grid">
-    <div class="value-card">
-      <i class="fa-solid fa-gift"></i>
-      <h3>Handpicked Curation</h3>
-      <p>Every item is carefully selected from independent makers and top artisans.</p>
-    </div>
-    <div class="value-card">
-      <i class="fa-solid fa-bolt"></i>
-      <h3>Fast Delivery</h3>
-      <p>Express shipping and same-day options so your gifts always arrive on time.</p>
-    </div>
-    <div class="value-card">
-      <i class="fa-solid fa-leaf"></i>
-      <h3>Mindful Packaging</h3>
-      <p>Eco-friendly, aesthetic packaging designed to leave a lasting impression.</p>
-    </div>
-  </div>
+    <!-- Why Choose Us -->
+    <section class="about-values-section">
+      <h2 class="why-title">Why Well Chosen Stands Out</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>Interactive Gift Finder</h3>
+          <p>Our quiz analyzes recipient relationship, milestone occasion, aesthetic vibe, and budget to compute tailored gift scores.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-gift"></i></div>
+          <h3>Handpicked Artisanship</h3>
+          <p>Every product is selected from boutique creators, local artisans, and premium confectioners with attention to sensory presentation.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Fast & Reliable</h3>
+          <p>Careful packaging with express delivery protocols so your gifts always arrive in pristine, unboxing-ready condition.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Mindful Eco Packaging</h3>
+          <p>We prioritize recyclable boxes, biodegradable bubble wrap, and reusable keepsake glass and wooden vessels.</p>
+        </div>
+      </div>
+    </section>
 
+    <!-- Academic & Industrial Training Credits -->
+    <section class="training-project-card">
+      <div class="training-badge"><i class="fa-solid fa-graduation-cap"></i> Industrial Training & Project Showcase</div>
+      <h3>Academic Project Overview</h3>
+      <p>This project is designed and implemented by <strong>Bhagyashree Modi</strong> as part of the industrial training curriculum. The platform showcases modern front-end web architecture, component-based layout design, client-side state management (localStorage cart and wishlist), dynamic multi-factor search algorithms, and responsive mobile-first UI design.</p>
+    </section>
+
+    <!-- Image Sources & Creative Attribution Section -->
+    <section id="credits" class="credits-card">
+      <div class="credits-header">
+        <i class="fa-solid fa-camera-retro"></i>
+        <h2>Image Sources & Creative Attribution</h2>
+      </div>
+      <p>In accordance with open creative licensing and fair-use educational portfolio best practices, all photography and aesthetic product visual mockups featured on Well Chosen are carefully attributed to creator communities and platforms:</p>
+      <ul class="credits-list">
+        <li><strong>Unsplash & Pexels:</strong> High-resolution curated lifestyle photography, botanical bouquets, and cozy pastel interior decor imagery licensed under open creative licenses.</li>
+        <li><strong>Artisan Craft Portfolios:</strong> Custom pet watercolor portraits, Kundan Rakhi designs, and floral memory shadow boxes referenced as product conceptualization mockups for educational demonstration.</li>
+        <li><strong>Icons:</strong> Font Awesome 6 Free SVG Iconography.</li>
+        <li><strong>Typography:</strong> Google Fonts (<cite>Outfit</cite>, <cite>Playfair Display</cite>, and <cite>Inter</cite>).</li>
+      </ul>
+      <p class="credits-note"><i class="fa-solid fa-circle-info"></i> All images have been cleaned, optimized, and hosted locally in the <code>images/</code> repository directory with standardized lowercase-hyphenated naming for high-performance GitHub Pages deployment.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -60,14 +126,24 @@
         <p>Making thoughtful gifting effortless, personal, and memorable for every occasion.</p>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Explore</h4>
         <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="shop.html">Shop All Gifts</a>
+        <a href="giftfinder.html">Gift Finder Quiz</a>
+        <a href="occasions.html">Shop by Occasion</a>
+      </div>
+      <div class="footer-col">
+        <h4>About & Support</h4>
+        <a href="about.html">Our Story</a>
+        <a href="about.html#credits">Image Credits</a>
+        <a href="contact.html">Contact Us</a>
       </div>
     </div>
     <p class="footer-bottom">&copy; 2026 Well Chosen. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
