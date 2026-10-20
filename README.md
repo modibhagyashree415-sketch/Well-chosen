@@ -66,11 +66,12 @@ When shopping for gifts, users often experience decision paralysis due to endles
             │
             ▼
 [ Step 2: Occasion ]
+  ├── Diwali & Festive Celebrations 🪔
   ├── Birthday 🎂
   ├── Anniversary 🥂
-  ├── Valentine's Day 💖
   ├── Wedding / Reception 🎊
-  ├── Festive / Diwali / Rakhi 🪔
+  ├── Housewarming & Griha Pravesh 🏡
+  ├── Valentine's Day 💖
   └── Just Because / Thank You ✨
             │
             ▼
@@ -120,12 +121,12 @@ Well-chosen/
 ├── index.html                  # Landing page (Hero, Occasion chips, Trending, Slider, CTA)
 ├── shop.html                   # Filterable product catalog with live search and sorting
 ├── giftfinder.html             # Smart 4-step interactive gift recommendation quiz
-├── occasions.html              # Curated celebration gateway (Birthdays, Weddings, Rakhi, etc.)
+├── occasions.html              # Curated celebration gateway (Diwali, Weddings, Housewarming, etc.)
 ├── about.html                  # Brand narrative, industrial training details, and image credits
 ├── contact.html                # Concierge support cards, form validation, and feedback
 ├── style.css                   # Complete design system & responsive styling tokens
 ├── js/
-│   ├── products.js             # Central product catalog data array (15 curated items)
+│   ├── products.js             # Central product catalog data array (18 curated items)
 │   ├── app.js                  # Shared navbar toggle, global live search, cart/wishlist, toasts
 │   ├── quiz.js                 # Multi-factor quiz algorithm and dynamic results engine
 │   └── shop.js                 # Dynamic shop filter controls and catalog renderer
@@ -134,13 +135,16 @@ Well-chosen/
 │   ├── artisan-chocolate-box.jpg
 │   ├── cozy-candle-decor.jpg
 │   ├── custom-floral-memory-frame.jpg
+│   ├── diwali-brass-diya-pooja-box.jpg
+│   ├── diwali-dry-fruits-wooden-box.jpg
+│   ├── diwali-floating-candles-urli.jpg
 │   ├── diwali-hamper.jpg
+│   ├── diwali-scented-diyas-gift-box.jpg
 │   ├── family-collage-mug.jpg
 │   ├── festive-gift-hamper.jpg
 │   ├── heart-chocolate-box.jpg
 │   ├── luxury-perfume-set.jpg
 │   ├── luxury-red-roses.jpg
-│   ├── peacock-rakhi-combo.jpg
 │   ├── pet-portrait-mug.jpg
 │   ├── soap-flower-frame.jpg
 │   ├── sunflower-rose-bouquet.jpg
@@ -208,7 +212,7 @@ This repository is structured for zero-configuration, instant deployment on GitH
 
 In alignment with educational portfolio guidelines and fair-use attribution best practices:
 - **Photography:** Curated aesthetic mockups and lifestyle imagery from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/) under open creative licenses.
-- **Handcrafted Keepsakes:** Photographic references of custom pet portrait ceramics, Kundan Rakhis, and floral memory shadow boxes credited to artisan craft portfolios for educational demonstration.
+- **Handcrafted Keepsakes:** Photographic references of custom pet portrait ceramics, handcrafted brass diyas, and floral memory shadow boxes credited to artisan craft portfolios for educational demonstration.
 - **Standardized Optimization:** All assets have been moved from the root directory into `images/` and renamed using lowercase alphanumeric characters with hyphens to ensure zero broken links across POSIX and Windows file systems.
 
 ---

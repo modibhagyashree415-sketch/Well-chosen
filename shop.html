@@ -40,7 +40,7 @@
   <header class="shop-header">
     <div class="shop-header-inner">
       <h1>All Curated Gifts</h1>
-      <p>Handcrafted keepsakes, fresh floral creations, and deluxe hampers designed to create memories.</p>
+      <p>Handcrafted keepsakes, Diwali hampers, fresh floral creations, and deluxe gifts designed to create memories.</p>
     </div>
   </header>
 
@@ -50,13 +50,13 @@
     <!-- Category Filter Chips -->
     <div class="shop-category-bar" aria-label="Product categories">
       <button type="button" class="shop-filter-chip active" data-category="all">All Gifts</button>
-      <button type="button" class="shop-filter-chip" data-category="flowers">🌸 Fresh Flowers</button>
+      <button type="button" class="shop-filter-chip" data-category="festive">🪔 Diwali & Festive</button>
       <button type="button" class="shop-filter-chip" data-category="hamper">🧺 Gift Hampers</button>
+      <button type="button" class="shop-filter-chip" data-category="flowers">🌸 Fresh Flowers</button>
+      <button type="button" class="shop-filter-chip" data-category="home">🕯️ Home & Candles</button>
       <button type="button" class="shop-filter-chip" data-category="personalized">🖼️ Personalized</button>
       <button type="button" class="shop-filter-chip" data-category="food">🍫 Chocolates</button>
-      <button type="button" class="shop-filter-chip" data-category="home">🕯️ Home & Candles</button>
       <button type="button" class="shop-filter-chip" data-category="fragrance">✨ Perfumes</button>
-      <button type="button" class="shop-filter-chip" data-category="festive">🪔 Festive & Rakhi</button>
     </div>
 
     <!-- Filter Control Toolbar -->
@@ -71,11 +71,12 @@
           <label for="shopOccasionFilter" class="sr-only">Occasion</label>
           <select id="shopOccasionFilter">
             <option value="all">All Occasions</option>
+            <option value="diwali">Diwali & Festivals</option>
             <option value="birthday">Birthday</option>
             <option value="anniversary">Anniversary</option>
             <option value="wedding">Wedding</option>
+            <option value="housewarming">Housewarming & Griha Pravesh</option>
             <option value="valentine">Valentine's Day</option>
-            <option value="rakhi">Rakhi & Festive</option>
             <option value="corporate">Corporate & Thank You</option>
           </select>
         </div>
@@ -103,7 +104,7 @@
 
     <!-- Active Count & Reset -->
     <div class="shop-status-bar">
-      <span id="shopItemCount">Showing 15 gifts</span>
+      <span id="shopItemCount">Showing gifts</span>
       <button type="button" id="resetShopFilters" class="clear-filters-link">
         <i class="fa-solid fa-rotate-left"></i> Reset Filters
       </button>
