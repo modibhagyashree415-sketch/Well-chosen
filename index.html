@@ -171,38 +171,161 @@
     </div>
   </section>
 
-  <!-- Visual Carousel Slider -->
-  <section class="slider-container" aria-label="Featured gift collections banner">
-    <div class="slider">
-      <div class="slide active">
-        <img src="images/diwali-brass-diya-pooja-box.jpg" alt="Diwali Festive Hampers">
-        <div class="slide-caption">
-          <span class="slide-tag">Festive Splendor</span>
-          <h3>Grand Diwali & Celebration Hampers</h3>
-          <p>Handcrafted brass diyas, gourmet dry fruits, and artisanal traditional sweets.</p>
-          <a href="shop.html?occasion=diwali" class="slide-btn">Explore Diwali Gifts</a>
+  <!-- Diwali Festive Sale & Exclusive Offers Image Slider -->
+  <section class="diwali-slider-section" aria-label="Diwali Festive Sale and Special Offers">
+    <div class="diwali-slider-header">
+      <div class="diwali-badge-pill">
+        <i class="fa-solid fa-sparkles"></i> Grand Diwali Mahotsav 2026
+      </div>
+      <h2>Diwali Dhamaka Sale & Exclusive Festive Offers</h2>
+      <p>Illuminate every home with authentic brass diyas, handcrafted hampers & gourmet dry fruits with festive savings up to 40% OFF.</p>
+      
+      <!-- Interactive Coupon Bar -->
+      <div class="festive-coupon-strip">
+        <div class="coupon-left">
+          <i class="fa-solid fa-gift"></i>
+          <span>Diwali Special Coupon:</span>
+          <span class="coupon-code-pill" onclick="copyCoupon('DIWALI300')" title="Click to copy coupon code">
+            <strong>DIWALI300</strong> <i class="fa-regular fa-copy"></i>
+          </span>
+          <span class="coupon-desc">Get Flat ₹300 OFF on orders above ₹1,499</span>
+        </div>
+        <div class="coupon-right">
+          <span class="offer-delivery"><i class="fa-solid fa-truck-fast"></i> Guaranteed Delivery Before Diwali</span>
         </div>
       </div>
-      <div class="slide">
-        <img src="images/sunshine-flower-bouquet.jpg" alt="Sunshine Flower Bouquet">
-        <div class="slide-caption">
-          <span class="slide-tag">Fresh Blooms</span>
-          <h3>Fresh Florals Hand-Tied With Care</h3>
-          <p>Delivered fresh with personalized calligraphy cards.</p>
-          <a href="shop.html?category=flowers" class="slide-btn">Explore Bouquets</a>
+    </div>
+
+    <div class="slider-container">
+      <div class="slider" id="homeSlider">
+        <!-- Slide 1: Grand Diwali Pooja & Sweets Hamper -->
+        <div class="slide active">
+          <img src="images/diwali-brass-diya-pooja-box.jpg" alt="Diwali Grand Pooja & Sweets Deluxe Hamper" loading="eager">
+          <div class="slide-caption">
+            <span class="slide-tag">🪔 Grand Diwali Sale • 28% OFF</span>
+            <h3>Diwali Grand Pooja & Sweets Deluxe Hamper</h3>
+            <p>Handcrafted brass diya, pure temple dhoop, assorted gourmet mithai, and premium roasted dry fruits in a gold-embossed box.</p>
+            <div class="slide-offer-pricing">
+              <span class="slide-deal-price">₹1,799</span>
+              <span class="slide-original-price">₹2,499</span>
+              <span class="slide-save-pill">Save ₹700</span>
+            </div>
+            <div class="slide-actions-row">
+              <a href="shop.html?occasion=diwali" class="slide-btn">
+                <i class="fa-solid fa-bag-shopping"></i> Shop Diwali Sale
+              </a>
+              <button class="slide-secondary-btn" onclick="addToCart(18)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="slide">
-        <img src="images/luxury-red-roses.jpg" alt="Luxury Red Roses">
-        <div class="slide-caption">
-          <span class="slide-tag">Grand Romantics</span>
-          <h3>Milestone Anniversary & Valentine Specials</h3>
-          <p>Classic crimson roses and chocolate heart collections.</p>
-          <a href="shop.html?occasion=valentine" class="slide-btn">Shop Romantic Gifts</a>
+
+        <!-- Slide 2: Royal Shubh Labh Dry Fruits Wooden Chest -->
+        <div class="slide">
+          <img src="images/diwali-dry-fruits-wooden-box.jpg" alt="Royal Shubh Labh Dry Fruits Wooden Chest" loading="lazy">
+          <div class="slide-caption">
+            <span class="slide-tag">⭐ Bestseller Offer • Save ₹400</span>
+            <h3>Royal Shubh Labh Dry Fruits Wooden Box</h3>
+            <p>Intricately hand-carved Sheesham wooden chest loaded with jumbo cashew nuts, California almonds, pistachios & complimentary silver coin.</p>
+            <div class="slide-offer-pricing">
+              <span class="slide-deal-price">₹1,299</span>
+              <span class="slide-original-price">₹1,699</span>
+              <span class="slide-save-pill">Save ₹400</span>
+            </div>
+            <div class="slide-actions-row">
+              <a href="shop.html?occasion=diwali" class="slide-btn">
+                <i class="fa-solid fa-bag-shopping"></i> Claim Festive Deal
+              </a>
+              <button class="slide-secondary-btn" onclick="addToCart(7)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
+
+        <!-- Slide 3: Brass Urli Floating Candles Centerpiece -->
+        <div class="slide">
+          <img src="images/diwali-floating-candles-urli.jpg" alt="Brass Urli Floating Candles Centerpiece" loading="lazy">
+          <div class="slide-caption">
+            <span class="slide-tag">✨ Festive Home Decor • Flat 29% OFF</span>
+            <h3>Aesthetic Brass Urli Floating Candles Centerpiece</h3>
+            <p>Hand-hammered traditional brass urli bowl paired with scented floating candles and natural marigold blooms for your festive entryway.</p>
+            <div class="slide-offer-pricing">
+              <span class="slide-deal-price">₹999</span>
+              <span class="slide-original-price">₹1,399</span>
+              <span class="slide-save-pill">Save ₹400</span>
+            </div>
+            <div class="slide-actions-row">
+              <a href="shop.html?occasion=diwali" class="slide-btn">
+                <i class="fa-solid fa-bag-shopping"></i> Shop Festive Decor
+              </a>
+              <button class="slide-secondary-btn" onclick="addToCart(16)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Hand-Painted Terracotta Diya Gift Sets -->
+        <div class="slide">
+          <img src="images/diwali-scented-diyas-gift-box.jpg" alt="Handcrafted Scented Terracotta Diyas" loading="lazy">
+          <div class="slide-caption">
+            <span class="slide-tag">🪔 Artisan Special • Under ₹500</span>
+            <h3>Hand-Painted Terracotta Diya Gift Set</h3>
+            <p>Eco-friendly earthen diyas hand-crafted by indigenous potters with organic soy wax and calming temple sandalwood fragrance.</p>
+            <div class="slide-offer-pricing">
+              <span class="slide-deal-price">₹499</span>
+              <span class="slide-original-price">₹699</span>
+              <span class="slide-save-pill">Buy 2 Get 1 Free</span>
+            </div>
+            <div class="slide-actions-row">
+              <a href="shop.html?occasion=diwali" class="slide-btn">
+                <i class="fa-solid fa-bag-shopping"></i> Explore Diya Combos
+              </a>
+              <button class="slide-secondary-btn" onclick="addToCart(17)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5: Premium Festive Celebration Hamper -->
+        <div class="slide">
+          <img src="images/diwali-hamper.jpg" alt="Festive Celebration Hamper" loading="lazy">
+          <div class="slide-caption">
+            <span class="slide-tag">🎁 Family & Corporate • 25% OFF</span>
+            <h3>Premium Festive Celebration Hamper</h3>
+            <p>California almonds, roasted salted cashews, handcrafted brass diya pair, pure organic forest honey, and custom greeting calligraphy.</p>
+            <div class="slide-offer-pricing">
+              <span class="slide-deal-price">₹1,499</span>
+              <span class="slide-original-price">₹1,999</span>
+              <span class="slide-save-pill">Free Greeting Card</span>
+            </div>
+            <div class="slide-actions-row">
+              <a href="shop.html?occasion=diwali" class="slide-btn">
+                <i class="fa-solid fa-bag-shopping"></i> Order Festive Hamper
+              </a>
+              <button class="slide-secondary-btn" onclick="addToCart(2)">
+                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="slider-btn prev" onclick="prevSlide()" aria-label="Previous Diwali Offer Slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slider-btn next" onclick="nextSlide()" aria-label="Next Diwali Offer Slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Counter & Indicators -->
+        <div class="slider-counter" id="slideCounter">1 / 5</div>
+        <div class="slider-dots" id="sliderDots" aria-label="Slide navigation dots"></div>
+        <div class="slider-progress-bar"><div class="slider-progress-fill" id="sliderProgress"></div></div>
       </div>
-      <button class="slider-btn prev" onclick="prevSlide()" aria-label="Previous slide">&#10094;</button>
-      <button class="slider-btn next" onclick="nextSlide()" aria-label="Next slide">&#10095;</button>
     </div>
   </section>
 

@@ -160,21 +160,78 @@ function initSearch() {
 }
 
 /* -----------------------------------------
-   3. HERO SLIDER CAROUSEL
+   3. DIWALI FESTIVE SLIDER CAROUSEL & OFFERS
 ----------------------------------------- */
 let currentSlideIndex = 0;
 let slideInterval = null;
+let progressInterval = null;
+const SLIDE_DURATION = 5000;
 
 function initSlider() {
   const slides = document.querySelectorAll(".slider .slide");
   if (!slides || slides.length === 0) return;
+
+  const dotsContainer = document.getElementById("sliderDots");
+  const counterEl = document.getElementById("slideCounter");
+  const progressFill = document.getElementById("sliderProgress");
+  const sliderEl = document.getElementById("homeSlider") || document.querySelector(".slider");
+
+  // Create indicator dots dynamically
+  if (dotsContainer) {
+    dotsContainer.innerHTML = "";
+    slides.forEach((_, idx) => {
+      const dot = document.createElement("button");
+      dot.className = `slider-dot ${idx === 0 ? "active" : ""}`;
+      dot.setAttribute("aria-label", `Go to slide ${idx + 1}`);
+      dot.addEventListener("click", () => {
+        showSlide(idx);
+        startAutoplay();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateDots(index) {
+    if (!dotsContainer) return;
+    const dots = dotsContainer.querySelectorAll(".slider-dot");
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === index);
+    });
+  }
+
+  function updateCounter(index) {
+    if (counterEl) {
+      counterEl.textContent = `${index + 1} / ${slides.length}`;
+    }
+  }
+
+  function resetProgress() {
+    if (progressInterval) clearInterval(progressInterval);
+    if (!progressFill) return;
+    progressFill.style.width = "0%";
+    const startTime = Date.now();
+    progressInterval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+      progressFill.style.width = `${pct}%`;
+      if (pct >= 100) clearInterval(progressInterval);
+    }, 50);
+  }
 
   function showSlide(index) {
     slides.forEach((s, i) => {
       s.classList.toggle("active", i === index);
     });
     currentSlideIndex = index;
+    updateDots(index);
+    updateCounter(index);
+    resetProgress();
   }
+
+  window.goToSlide = function(index) {
+    showSlide(index);
+    startAutoplay();
+  };
 
   window.nextSlide = function() {
     let next = (currentSlideIndex + 1) % slides.length;
@@ -189,20 +246,69 @@ function initSlider() {
   // Start autoplay
   function startAutoplay() {
     stopAutoplay();
-    slideInterval = setInterval(window.nextSlide, 5000);
+    resetProgress();
+    slideInterval = setInterval(window.nextSlide, SLIDE_DURATION);
   }
 
   function stopAutoplay() {
     if (slideInterval) clearInterval(slideInterval);
+    if (progressInterval) clearInterval(progressInterval);
   }
 
-  const sliderEl = document.querySelector(".slider");
   if (sliderEl) {
     sliderEl.addEventListener("mouseenter", stopAutoplay);
     sliderEl.addEventListener("mouseleave", startAutoplay);
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    sliderEl.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoplay();
+    }, { passive: true });
+
+    sliderEl.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      startAutoplay();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const threshold = 40;
+      if (touchEndX < touchStartX - threshold) {
+        window.nextSlide();
+      } else if (touchEndX > touchStartX + threshold) {
+        window.prevSlide();
+      }
+    }
+
     startAutoplay();
   }
 }
+
+// Global coupon copy helper
+window.copyCoupon = function(code) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(code).then(() => {
+      showToast(`Coupon code "${code}" copied to clipboard! 🪔✨`, "success");
+    }).catch(() => {
+      fallbackCopy(code);
+    });
+  } else {
+    fallbackCopy(code);
+  }
+
+  function fallbackCopy(text) {
+    const tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    showToast(`Coupon code "${text}" copied! 🪔✨`, "success");
+  }
+};
 
 /* -----------------------------------------
    4. CART & WISHLIST STORAGE & TOASTS
